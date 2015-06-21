@@ -23,6 +23,7 @@ args = sys.argv
 albumUrl = args[1] if len(args) > 1 else 'http://www.douban.com/photos/album/157958974/?start=126'
 destDir = args[2] if len(args) > 2 else '~/Downloads'
 
+print '\nStarts ...'
 print 'url: ', albumUrl
 print 'dest: ', destDir
 
@@ -55,13 +56,13 @@ def encodeDict(dic, encoding):
 
 
 def getProperFilenameStr(strg):
-	''' get a proper string consists of at most 15 unicode chars '''
+	''' get a proper string consists of at most 20 unicode chars '''
 
 	strgUni = strg.decode('utf-8')
 	candi = ''
 	i = 0
 	for ch in strgUni:
-		if i > 15:
+		if i > 20:
 			candi += '..'
 			break
 		if ch not in INVALID_FILENAME_CHARS:
